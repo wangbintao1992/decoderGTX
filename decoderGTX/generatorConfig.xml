@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry location="D:\Downloads\mysql-connector-java-5.1.38.jar" />
+	<context id="context1">
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<!-- model类带上withProperties方法 -->
+		<plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" /> 
+		
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+			<!-- 关闭时间注释 -->
+			<property name="suppressDate" value="true"/>
+		</commentGenerator>
+		
+		
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/smart?serverTimezone=Asia/Hong_Kong" userId="root" password="123456" >
+			<property name="useInformationSchema" value="true"/>
+		</jdbcConnection>
+		<!-- 生成模型的包名和位置 （使用maven命令时需要去掉“smartHome/”）-->
+		<javaModelGenerator targetPackage="com.sh.model" targetProject="smartHome/src/main/java" />
+		<!-- 生成的映射文件报名和位置 -->
+		<sqlMapGenerator targetPackage="com.sh.mapper" targetProject="smartHome/src/main/java" />
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator targetPackage="com.sh.mapper" targetProject="smartHome/src/main/java" type="XMLMAPPER" />
+		<!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->
+		<!-- <table schema="ssm1" tableName="FILMINFO" domainObjectName="FilmInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride column="FILMID" property="FILMID" 
+			/> <columnOverride column="FILMNAME" property="FILMNAME" /> <columnOverride column="TYPEID" property="TYPEID" /> <columnOverride column="ACTOR" property="ACTOR" /> <columnOverride column="DIRECTOR" property="DIRECTOR" /> <columnOverride column="TICKETPRICE" property="TICKETPRICE" 
+			/> </table> -->
+		<table tableName="device_bind" domainObjectName="DeviceBind" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+ 
+
+	</context>
+
+	<!-- <context id="context1"> <jdbcConnection connectionURL="???" driverClass="???" password="???" userId="???" /> <javaModelGenerator targetPackage="???" targetProject="???" /> <sqlMapGenerator targetPackage="???" targetProject="???" /> <javaClientGenerator targetPackage="???" 
+		targetProject="???" type="XMLMAPPER" /> <table schema="???" tableName="???"> <columnOverride column="???" property="???" /> </table> </context> -->
+</generatorConfiguration>
