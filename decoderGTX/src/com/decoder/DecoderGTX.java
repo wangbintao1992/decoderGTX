@@ -5,7 +5,7 @@ import com.decoder.anno.Collection;
 import com.decoder.anno.Rule;
 import com.decoder.engine.DecoderEngine;
 
-public class DecoderGTX<T> {
+public class DecoderGTX{
 	
 	private final byte[] data;
 	
@@ -20,7 +20,7 @@ public class DecoderGTX<T> {
 		this.data = data;
 	}
 	
-	public T decoder(Class<?> class1){
+	public <T> T decoder(Class<?> class1){
 		T i = null;
 		try {
 			i = (T) class1.newInstance();
